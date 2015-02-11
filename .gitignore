@@ -53,4 +53,5 @@ docs/_build/
 # PyBuilder
 target/
 
-out.csv
+data-*.csv
+preview-*.xls
