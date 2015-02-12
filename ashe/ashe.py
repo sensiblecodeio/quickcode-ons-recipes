@@ -8,7 +8,7 @@ def per_file(tabs):
     return tablist
 
 def per_tab(tab):
-    tab.set_header("Table Header", tab.excel_ref("A1").value)
+    tab.dimension("Table Header", tab.excel_ref("A1").value)
 	
     obs = tab.excel_ref("H13").fill(RIGHT).fill(DOWN)
 
