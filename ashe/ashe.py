@@ -14,12 +14,11 @@ def per_tab(tab):
 
     anchor = tab.filter("18-21 ALL OCCUPATIONS").assert_one()
 	
-    anchor.shift(RIGHT).fill(DOWN).is_header("SOC", LEFT, strict=True)
+    anchor.shift(RIGHT).fill(DOWN).dimension("SOC", DIRECTLY, LEFT)
     descriptions = anchor.fill(DOWN)
-    descriptions.is_header("description", LEFT, strict=True) # feels like this'd make more sense with junction
+    descriptions.dimension("description", DIRECTLY, LEFT) # feels like this'd make more sense with junction
 
-    # Merges three cells vertically together to make the one they really are
     percentiles = tab.filter("Percentiles").assert_one().shift(DOWN).fill(RIGHT)
-    percentiles.is_header("Percentiles", UP, strict=True)
+    percentiles.dimension("Percentiles", DIRECTLY, ABOVE)
     
     return obs

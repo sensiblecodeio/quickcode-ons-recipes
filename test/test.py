@@ -35,8 +35,8 @@ def collapse_bag(bag):
 
 
 def per_tab(tab):
-    tab.set_header("kitten", "kitten")
-    tab.excel_ref("A1").fill(RIGHT).is_header('top', UP, strict=True)
+    tab.dimension("kitten", "kitten")
+    tab.excel_ref("A1").fill(RIGHT).dimension('top', DIRECTLY, ABOVE)
     foo = tab.excel_ref("A1").fill(RIGHT).fill(DOWN)
     print list(collapse_bag(foo))
     x = tab.filter("x")
