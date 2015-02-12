@@ -8,15 +8,15 @@ def per_file(tabs):
     return tablist
 
 def per_tab(tab):
-    tab.set_header("A1", tab.excel_ref("A1").value)
+    tab.dimension("A1", tab.excel_ref("A1").value)
 
     code = tab.filter("Code").assert_one()
     obs = code.shift(DOWN).shift(RIGHT).fill(RIGHT).fill(DOWN) # TODO exclude keys at right and below
 
-    code.fill(DOWN).is_header(GEOG, LEFT, strict=True)
+    code.fill(DOWN).dimension(GEOG, DIRECTLY, LEFT)
     descriptions = tab.filter("Description").assert_one().fill(DOWN)
-    descriptions.is_header("description", LEFT, strict=True) # feels like this'd make more sense with junction
-    descriptions.is_bold.is_header("category", UP)
+    descriptions.dimension("description", DIRECTLY, LEFT) # feels like this'd make more sense with junction
+    descriptions.is_bold.dimension("category", CLOSEST, ABOVE)
 
     # Merges three cells vertically together to make the one they really are
     bottom_header = code.fill(RIGHT)
@@ -27,6 +27,6 @@ def per_tab(tab):
                              unicode(header.shift(UP).value) + u' ' + \
                              unicode(header.value) + str(i)
         header._cell.value = header.value.strip()
-    code.fill(RIGHT).is_header('indicator', UP, strict=True)
+    code.fill(RIGHT).dimension('indicator', DIRECTLY, ABOVE)
 
     return obs
