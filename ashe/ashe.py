@@ -8,25 +8,18 @@ def per_file(tabs):
     return tablist
 
 def per_tab(tab):
-    tab.set_header("A1", tab.excel_ref("A1").value)
+    tab.set_header("Table Header", tab.excel_ref("A1").value)
+	
+    obs = tab.excel_ref("H13").fill(RIGHT).fill(DOWN)
 
-    code = tab.filter("Code").assert_one()
-    obs = code.shift(DOWN).shift(RIGHT).fill(RIGHT).fill(DOWN) # TODO exclude keys at right and below
-
-    code.fill(DOWN).is_header(GEOG, LEFT, strict=True)
-    descriptions = tab.filter("Description").assert_one().fill(DOWN)
+    anchor = tab.filter("18-21 ALL OCCUPATIONS").assert_one()
+	
+    anchor.shift(RIGHT).fill(DOWN).is_header("SOC", LEFT, strict=True)
+    descriptions = anchor.fill(DOWN)
     descriptions.is_header("description", LEFT, strict=True) # feels like this'd make more sense with junction
-    descriptions.is_bold.is_header("category", UP)
 
     # Merges three cells vertically together to make the one they really are
-    bottom_header = code.fill(RIGHT)
-    for i, header in enumerate(bottom_header):
-        if isinstance(header.value, float):  # is a percentile
-            continue  # don't modify it.
-        header._cell.value = unicode(header.shift(UP).shift(UP).value) + u' ' + \
-                             unicode(header.shift(UP).value) + u' ' + \
-                             unicode(header.value) + str(i)
-        header._cell.value = header.value.strip()
-    code.fill(RIGHT).is_header('indicator', UP, strict=True)
-
+    percentiles = tab.filter("Percentiles").assert_one().shift(DOWN).fill(RIGHT)
+    percentiles.is_header("Percentiles", UP, strict=True)
+    
     return obs
