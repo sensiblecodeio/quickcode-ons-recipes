@@ -41,5 +41,6 @@ def per_tab(tab):
     print list(collapse_bag(foo))
     x = tab.filter("x")
     print list(collapse_bag(x))
+    print tab.excel_ref("A6").value
     return tab.excel_ref("B2").fill(RIGHT).fill(DOWN)
 
