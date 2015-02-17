@@ -8,14 +8,14 @@ def per_file(tabs):
 
 def per_tab(tab):
 
-    tab.filter("Description").fill(DOWN).is_not_blank.is_header("SIC",UP)
-    tab.filter("Sizeband employment").fill(DOWN).is_header("Sizeband",LEFT,strict=True)
-    
-    tab.set_header(TIME, tab.name)
-    
+    tab.filter("Description").fill(DOWN).is_not_blank().dimension("SIC",CLOSEST,ABOVE)
+    tab.filter("Sizeband employment").fill(DOWN).dimension("Sizeband",DIRECTLY,LEFT)
+
+    tab.dimension(TIME, tab.name)
+
     anchor=tab.filter("Number of Enterprises").assert_one()
-    anchor.fill(RIGHT).is_header("Turnover",UP,strict=True)
-    
-    obs=anchor.shift(DOWN).shift(DOWN).fill(RIGHT).fill(DOWN).is_not_blank
-    
+    anchor.fill(RIGHT).dimension("Turnover",DIRECTLY,ABOVE)
+
+    obs=anchor.shift(DOWN).shift(DOWN).fill(RIGHT).fill(DOWN).is_not_blank()
+
     return obs
