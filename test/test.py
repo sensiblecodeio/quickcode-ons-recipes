@@ -42,5 +42,12 @@ def per_tab(tab):
     x = tab.filter("x")
     print list(collapse_bag(x))
     print tab.excel_ref("A6").value
+    print tab.excel_ref("A6").parent()
+    print tab.get_at(0,5)
+
+    print tab.one_of(["anchorspan", "a3"]).parent()
+    print tab.excel_ref("A6:B7")
+    print tab.excel_ref("A:B")
+    print tab.excel_ref("2:3")
     return tab.excel_ref("B2").fill(RIGHT).fill(DOWN)
 
