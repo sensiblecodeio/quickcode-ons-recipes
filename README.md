@@ -1,5 +1,5 @@
 # eot-recipes
 
-Excel Output Transformation recipes and sample files
+QuickCode for ONS recipes and sample files for DataBaker.
 
 Run with `bake <recipe> <spreadsheets>`
