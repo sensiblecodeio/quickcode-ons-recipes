@@ -8,4 +8,4 @@ bake census-2011-ccg/census-2011-ccg.py census-2011-ccg/Mid-2011-ccg-syoa-file.x
 # Commented out because recipe not available.
 # bake earn01/earn01.py earn01/table-earn01.xls
 bake earn03/earn03.py earn03/table-earn03.xls
-mkdir -p csv_out && find . -name "data*.csv" -exec mv {} ./csv_out/ \; 
+mkdir -p csv_out && find . -path ./csv_out -prune -o -name "data*.csv" -exec mv {} ./csv_out/ \;
