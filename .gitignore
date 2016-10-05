@@ -53,6 +53,5 @@ docs/_build/
 # PyBuilder
 target/
 
-data-*.csv
 preview-*.xls
 .~lock.*#
