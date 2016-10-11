@@ -1,8 +1,9 @@
 #!/bin/sh -e
 bake a02/a02.py a02/table-a02.xls
 
-bake abs/ABS01.py "abs/Annual Business Survey Standard Extracts 2014P (2).xlsx"
-bake abs/ABS01Extras.py "abs/Annual Business Survey Standard Extracts 2014P (2).xlsx"
+# Commented out because they generate very large files.
+# bake abs/ABS01.py "abs/Annual Business Survey Standard Extracts 2014P (2).xlsx"
+# bake abs/ABS01Extras.py "abs/Annual Business Survey Standard Extracts 2014P (2).xlsx"
 bake abs/ABS01SICLabels.py "abs/Annual Business Survey Standard Extracts 2014P (2).xlsx"
 
 # Commented out because recipe doesn't work for this file.
