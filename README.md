@@ -8,6 +8,7 @@ Run with `bake <recipe> <spreadsheets>`
 
 Files in `csv_out` have been generated with Python 2.7:
 
+```
 chardet==2.3.0
 databaker==1.1.1
 docopt==0.6.2
@@ -25,6 +26,7 @@ xlrd==1.0.0
 xlutils==2.0.0
 xlwt==1.1.2
 xypath==1.1.0
+```
 
 These can be used for comparing the behaviour of a "known good" and
 development versions of databaker.
