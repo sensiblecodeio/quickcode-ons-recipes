@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 bake a02/a02.py a02/table-a02.xls
 # Commented out because recipe doesn't work for this file.
 # Results in xypath.xypath.NoCellsAssertionError.
