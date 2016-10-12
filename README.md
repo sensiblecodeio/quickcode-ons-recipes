@@ -33,3 +33,11 @@ development versions of databaker.
 
 The 1.1.1 version is the version the ONS have been using as of the time
 of writing.
+
+## `compare.py`
+
+This is a Python script to compare the output of a git diff of CSVs. It
+was used to check that modified values only differed in precision
+between Python 2 and 3.
+
+See comments in the script for more information.
