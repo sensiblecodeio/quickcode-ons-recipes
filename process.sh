@@ -74,4 +74,9 @@ bake TT/TT_3_8.py TT/section1travelandtourism1980to2014_tcm77-403561.xls 1.03 1.
 bake TT/TT_3_8.py TT/section1travelandtourism1980to2014_tcm77-403561.xls 1.05 1.06
 bake TT/TT_3_8.py TT/section1travelandtourism1980to2014_tcm77-403561.xls 1.07 1.08
 
-mkdir -p csv_out && find . -path ./csv_out -prune -o -name "data*.csv" -exec mv {} ./csv_out/ \;
+CSV_PATH=csv_out
+PYTHON_VERSION=$(python -c "import sys; print(sys.version_info.major)")
+VERSION_CSV_PATH="$CSV_PATH"/py"$PYTHON_VERSION"
+
+mkdir -p "$VERSION_CSV_PATH" &&
+    find . -path ./"$CSV_PATH" -prune -o -name "data*.csv" -exec mv {} "$VERSION_CSV_PATH" \;
