@@ -6,7 +6,7 @@ Run with `bake <recipe> <spreadsheets>`
 
 ## Fixtures
 
-Files in `csv_out` have been generated with Python 2.7:
+Files in `csv_out` have been generated with both Python 2.7 using:
 
 ```
 chardet==2.3.0
@@ -27,6 +27,10 @@ xlutils==2.0.0
 xlwt==1.1.2
 xypath==1.1.0
 ```
+
+and Python 3.5 with the same dependency versions, except for
+databaker==1.2.0 which added Python 3 support. The Python 2.7 output
+remains unchanged using databaker==1.2.0.
 
 These can be used for comparing the behaviour of a "known good" and
 development versions of databaker.
