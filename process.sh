@@ -16,9 +16,6 @@ bake ASHE7/ASHE_recipe2.py "ASHE7/PROV - Work Geography Table 7.10b   Paid hours
 
 bake census-2011-ccg/census-2011-ccg.py census-2011-ccg/Mid-2011-ccg-syoa-file.xls
 
-# Commented out because recipe not available.
-# bake earn01/earn01.py earn01/table-earn01.xls
-
 bake earn03/earn03.py earn03/table-earn03.xls
 
 bake GERD/GERD_recipe_main.py GERD/rftberd2014datasets_tcm77-424594.xls 2014
