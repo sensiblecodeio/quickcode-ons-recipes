@@ -29,8 +29,8 @@ xypath==1.1.0
 ```
 
 and Python 3.5 with the same dependency versions, except for
-databaker==1.2.0 which added Python 3 support. The Python 2.7 output
-remains unchanged using databaker==1.2.0.
+`databaker==1.2.0` which added Python 3 support. The Python 2.7 output
+remains unchanged using `databaker==1.2.0`.
 
 These can be used for comparing the behaviour of a "known good" and
 development versions of databaker.
