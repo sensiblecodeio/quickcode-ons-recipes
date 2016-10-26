@@ -1,4 +1,8 @@
 #!/bin/sh -e
+if [ "$1" = "solo" ]; then
+  alias bake="./sbake.sh"
+fi
+
 bake a02/a02.py a02/table-a02.xls
 
 # Commented out because they generate very large files.
