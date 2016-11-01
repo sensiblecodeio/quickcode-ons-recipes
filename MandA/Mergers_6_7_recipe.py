@@ -38,3 +38,8 @@ def per_tab(tab):
     tab.dimension("Companies", "TempValue")
     
     yield obs
+
+
+import databaker.databakersolo
+databaker.databakersolo.runall(per_file, per_tab)
+
