@@ -5,9 +5,13 @@ Created on Tue Sep 29 10:31:27 2015
 @author: Mike
 """
 
+
 from __future__ import unicode_literals
 import sys
+
+
 from databaker.constants import *
+import re
 
 def per_file(tabs):
     return '*'
@@ -20,16 +24,15 @@ def per_tab(tab):
         return    
     if tab.name == 'CV notes':
         return
+    if tab.name != 'All':
+        return
     
-    # Get the time out of the filename
-    if sys.argv[1] == '--preview':
-        filename = sys.argv[3]
-    else:
-        filename = sys.argv[2]
-    filename = filename[:-4]
-    if filename[:-2] == 'CV':
-        filename = filename[:-3]
-    year = filename[-4:]
+    # Get the time out of the filename wherever it is in the argv list
+    year = "YBAD"
+    for a in sys.argv:
+        if re.search("\d\d\d\d\.xls$(?i)", a):
+            year = a[-8:-4]
+            break
     tab.dimension(TIME, year)
 
     # Set the earnings/hours dimension to whatever the tables uniquely measuring
@@ -97,4 +100,11 @@ def per_tab(tab):
     if PARAMS(4) == 'NoBoldClipped':
         obs = obs - tab.excel_ref('A13').expand(RIGHT).expand(UP) 
 
+
+    print("\n\nkkk********\n\n", tab.headers)
+
     yield obs
+
+
+import databaker.databakersolo
+databaker.databakersolo.runall(per_file, per_tab)
