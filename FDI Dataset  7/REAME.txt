@@ -1,0 +1,17 @@
+
+This is the code for extracting what we're calling FDI (foreign direcet investment) dataset7.
+
+This is formed from two spreadsheets. The INWARD flow and OUTWARD flow of this investment.
+
+Dataset 7 is formed by databaking and combining tabs 2.3,3.3 and 4.3 from BOTH spreadsheets into a singledataset.
+
+
+as well as the repo and batch file this repo contains:
+
+FDI_Dataset_transform_7.py- holds post processing code
+
+py_lookups.py - funtions for lookups (text replacments)
+
+transform_lib.py - old holding script for post processing functions (mostly junk - the ONLY things I ever use are Dismiss and Validate_Headers).
+
+geofix.py - hacky replacment script for all the geographic name extractions that didnt work
