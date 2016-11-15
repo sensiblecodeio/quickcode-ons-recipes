@@ -1,0 +1,3 @@
+bake --preview FDI_Dataset7_recipe.py annualfdi2014inwarddirectionalv3_tcm77-426424.xls "Flow" "Inward"
+bake --preview FDI_Dataset7_recipe.py annualfdi2014outwarddirectionalv3_tcm77-426426.xls "Flow" "Outward"
+python FDI_Dataset_transform_7.py "data-annualfdi2014inwarddirectionalv3_tcm77-426424-FDI_Dataset7_recipe-Flow,Inward.csv" "data-annualfdi2014outwarddirectionalv3_tcm77-426426-FDI_Dataset7_recipe-Flow,Outward.csv" "Transform_Dataset7"
