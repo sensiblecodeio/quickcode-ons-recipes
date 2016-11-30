@@ -22,5 +22,5 @@ for dfile in dfiles:
         print(k.keys())
         len(k["All"].columns)
 
-print("There are this many tables: ", len(tabs))
-print("Square sizes are", [len(tab)*len(tab.columns)  for tab in tabs])
+print("There are this many tables: ", len(alltabs))
+print("Square sizes are", [len(tab)*len(tab.columns)  for tab in alltabs])
