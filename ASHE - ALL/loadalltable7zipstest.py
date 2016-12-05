@@ -36,3 +36,4 @@ print("Total tabs", len(alltabs), "combined cells", sum(cellcounts))
 print("processing time", time.time() - t0)
 
 print("resource after", resource.getrusage(resource.RUSAGE_SELF))
+
